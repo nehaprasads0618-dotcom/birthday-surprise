@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Day Everything Went Wrong</title>
+
+<style>
+
+body{
+margin:0;
+background:black;
+color:white;
+font-family:Arial, sans-serif;
+overflow:hidden;
+}
+
+.screen{
+display:none;
+height:100vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:30px;
+}
+
+.active{
+display:flex;
+animation:fade 1.5s;
+}
+
+@keyframes fade{
+from{opacity:0}
+to{opacity:1}
+}
+
+.netflix{
+font-size:70px;
+font-weight:bold;
+color:red;
+letter-spacing:5px;
+}
+
+.typewriter{
+font-size:28px;
+border-right:3px solid white;
+white-space:nowrap;
+overflow:hidden;
+}
+
+button{
+padding:12px 25px;
+margin-top:25px;
+background:red;
+color:white;
+border:none;
+font-size:18px;
+cursor:pointer;
+border-radius:5px;
+}
+
+.final{
+background:linear-gradient(black,#111);
+}
+
+h1{
+font-size:45px;
+}
+
+p{
+max-width:700px;
+font-size:22px;
+line-height:1.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="bgmusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="s1" class="screen active">
+<div class="netflix">NETFLIX</div>
+<br>
+<div class="typewriter" id="typing"></div>
+<br>
+<button onclick="startStory()">START</button>
+</div>
+
+<div id="s2" class="screen">
+<h1>Chapter 1</h1>
+<p>
+A fake Instagram account was created.
+<br><br>
+At that moment...
+it seemed like a terrible idea.
+</p>
+<button onclick="next(3)">Continue</button>
+</div>
+
+<div id="s3" class="screen">
+<h1>Chapter 2</h1>
+<p>
+The truth was revealed.
+<br><br>
+A third person knew.
+<br><br>
+Embarrassment Level:
+100%
+</p>
+<button onclick="next(4)">Continue</button>
+</div>
+
+<div id="s4" class="screen">
+<h1>Chapter 3</h1>
+<p>
+I finally texted from my real account.
+<br><br>
+I thought I was revealing a huge secret.
+</p>
+<button onclick="next(5)">Continue</button>
+</div>
+
+<div id="s5" class="screen">
+<h1>PLOT TWIST</h1>
+<p>
+He already knew.
+<br><br>
+But he never said anything.
+<br><br>
+He waited for me to tell him myself.
+</p>
+<button onclick="next(6)">Continue</button>
+</div>
+
+<div id="s6" class="screen">
+<h1>Unexpected Outcome</h1>
+<p>
+Expected:
+Never talk again ❌
+<br><br>
+Actual:
+Friend request received ✅
+<br>
+Conversations started ✅
+</p>
+<button onclick="next(7)">Continue</button>
+</div>
+
+<div id="s7" class="screen">
+<h1>Chat Analysis</h1>
+<p>
+Casual Conversations: 100%
+<br><br>
+Random Talks: 100%
+<br><br>
+Flirting Detected: 100%
+<br><br>
+Feelings Detected ❤️
+</p>
+<button onclick="next(8)">View Final Report</button>
+</div>
+
+<div id="s8" class="screen final">
+<h1>The Final Report</h1>
+
+<p>
+If someone had told me
+on the day of that fake account...
+<br><br>
+that one day
+you would become such an important part of my life...
+<br><br>
+I wouldn't have believed it.
+</p>
+
+<button onclick="next(9)">Continue</button>
+</div>
+
+<div id="s9" class="screen final">
+<h1>❤️ Happy Birthday ❤️</h1>
+
+<p>
+What felt like
+"The Day Everything Went Wrong"
+<br><br>
+turned out to be
+the beginning of my favorite story.
+<br><br>
+Thank you for every conversation,
+every smile,
+every memory,
+and every feeling.
+<br><br>
+Happy Birthday,
+my favorite plot twist.
+❤️
+</p>
+
+</div>
+
+<script>
+
+const text="THE DAY EVERYTHING WENT WRONG";
+let i=0;
+
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,100);
+}
+}
+
+type();
+
+function startStory(){
+
+document.getElementById("bgmusic").play();
+
+next(2);
+
+}
+
+function next(n){
+
+for(let i=1;i<=9;i++){
+
+document.getElementById("s"+i).classList.remove("active");
+
+}
+
+document.getElementById("s"+n).classList.add("active");
+
+}
+
+</script>
+
+</body>
+</html>
